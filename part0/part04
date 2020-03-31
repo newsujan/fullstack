@@ -5,7 +5,7 @@ browser will send the user input to the server with POST request.
 end note
 
 server-->browser: /new-note
-note over browser:
+note over server:
 server responds with URL redirect with which 
 the server asks browser to do a new HTTP GET request. 
 then reloads the notes page
