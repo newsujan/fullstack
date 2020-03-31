@@ -1,3 +1,8 @@
+note over browser:
+user writes something into the text field
+and clicks the submit button
+end note
+
 browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
 
 note over browser:
@@ -6,28 +11,7 @@ end note
 
 server-->browser: HTTP status code 201 Created
 note over server: 
-server responds with URL redirect with which 
-the server asks browser to do a new HTTP GET request. 
-then reloads the spa page
-end note
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
-server-->browser: HTML-code
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
-server-->browser: main.css
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
-server-->browser: spa.js
-
-note over browser:
-browser starts executing js-code
-that requests JSON data from server 
-end note
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
-server-->browser: [{ content: "HTML is easy", ..}, ...]
-
-note over browser:
-browser executes the event handler
-that renders notes to display
+server creates a new note object
+and adds it to the note array
+The note is posted from server to spa page without reloading the page
 end note
